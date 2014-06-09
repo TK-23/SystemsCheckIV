@@ -2,22 +2,22 @@ class BoundingBox
 
   attr_reader :left, :bottom, :width, :height
 
-  def initialize(x,y,width,height)
-    @left = x
-    @bottom= y
+  def initialize(left,bottom,width,height)
+    @left = left
+    @bottom= bottom
     @width = width
     @height = height
   end
 
   def right
-    @x + @width
+    @left + @width
   end
 
   def top
-    @y + @height
+    @bottom + @height
   end
 
   def contains_point?(x,y)
-    ( x > left && x < right ) && ( y > bottom && y < top )
+    ( x >= left && x <= right ) && ( y >= bottom && y <= top )
   end
 end

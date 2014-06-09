@@ -8,9 +8,13 @@ class BoundingArea
 
   def contains_point?(x, y)
     if bounding_boxes == []
-      return false
+      false
     else
-
+      bounding_boxes.each do |box|
+        return true if box.contains_point?(x,y)
+      end
+      false
+    end
   end
 
 end
